@@ -1,0 +1,11 @@
+<!-- src/app/diakcsoport.component.html -->
+
+<div class="container mt-5 d-flex justify-content-center align-items-center flex-column">
+    <h2>Diákcsoport</h2>
+    <ul class="list-group list-group-numbered">
+      <li class="list-group-item shadow-lg p-3 mb-2 bg-body-tertiary rounded" *ngFor="let diak of diakok">
+        {{ diak.nev }} - Magasság: {{ diak.magassag }} cm, Súly: {{ diak.suly }} kg
+      </li>
+    </ul>
+  </div>
+  
