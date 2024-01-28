@@ -13,10 +13,13 @@ import { FormsModule } from '@angular/forms';
 })
 export class DiakcsoportComponent implements OnInit {
   diakok: Diak[] = [];
+  legmagasabbDiak: Diak | undefined;
 
   constructor(private diakcsoportService: DiakcsoportService) {}
   
   ngOnInit(): void {
     this.diakok = this.diakcsoportService.getDiakok();
-  } 
+    this.legmagasabbDiak = this.diakcsoportService.legmagasabbDiak();
+  }
+  
 }

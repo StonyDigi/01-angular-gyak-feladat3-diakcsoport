@@ -20,4 +20,21 @@ export class DiakcsoportService {
   getDiakok(): Diak[] {
     return this.diakok;
   }
+
+  /*
+
+a. Ki a legmagasabb a csoportban?
+b. Mennyi az átlag magasság?
+c. Ki a legsoványabb a csoportban?
+d. Kérjünk be egy nevet, majd írjuk ki az adatait (ha nincs ilyen diák, akkor arról is
+adjunk tájékoztatást)!
+e. Kérjünk be egy magasságot, majd listázzuk a legalább ilyen magas diákokat!
+  
+  */
+
+  legmagasabbDiak(): Diak {
+    return this.diakok.reduce((legmagasabb, diak) => 
+      diak.magassag > legmagasabb.magassag ? diak : legmagasabb, this.diakok[0]);
+  }
+
 }
