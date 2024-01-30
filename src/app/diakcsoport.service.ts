@@ -37,4 +37,22 @@ e. Kérjünk be egy magasságot, majd listázzuk a legalább ilyen magas diákok
       diak.magassag > legmagasabb.magassag ? diak : legmagasabb, this.diakok[0]);
   }
 
+  atlagMagassag(): number {
+    const sumMagassag = this.diakok.reduce((sum, diak) => sum + diak.magassag, 0);
+    return sumMagassag / this.diakok.length;
+  }
+
+  legsovanyabbDiak(): Diak {
+    return this.diakok.reduce((legsovanyabb, diak) => diak.suly < legsovanyabb.suly ? diak : legsovanyabb, this.diakok[0]);
+  }
+
+  keresNevAlapjan(nev: string): Diak | undefined {
+    return this.diakok.find(diak => diak.nev === nev);
+  }
+
+  keresMagassagAlapjan(magassag: number): Diak[] {
+    return this.diakok.filter(diak => diak.magassag >= magassag);
+  }
+  
+
 }

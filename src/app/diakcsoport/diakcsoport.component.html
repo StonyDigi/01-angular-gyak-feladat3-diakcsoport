@@ -14,9 +14,43 @@
           {{ legmagasabbDiak?.nev }} - Magasság: {{ legmagasabbDiak?.magassag }} cm
         </li>
       </ul>
-  
-  
-  
+
+    <h2 class="mt-2">Átlagmagasság</h2>  
+    <div class="list-group-item shadow-lg p-3 mb-2 bg-body-tertiary rounded mb-2" *ngIf="atlagMagassag !== undefined">
+      <p>Az átlag magasság: {{ atlagMagassag | number: '1.1-2' }} cm</p>
+    </div>
+
+    <h2 class="mt-2" *ngIf="legsovanyabbDiak">Legsoványabb Diák</h2>  
+    <div class="list-group-item shadow-lg p-3 mb-2 bg-body-tertiary rounded mb-2" *ngIf="atlagMagassag !== undefined">
+      <p>{{ legsovanyabbDiak?.nev }} - Magasság: {{ legsovanyabbDiak?.magassag }}, Súly: {{ legsovanyabbDiak?.suly }}</p>
+    </div>
+
+    <h2 class="mt-2">Diák keresése a tömbben</h2> 
+    <div class="mt-2">
+      <label for="keresettNev">Keresett név:</label>
+      <input type="text" id="keresettNev" [(ngModel)]="keresettNev">
+      <button (click)="keresesNevAlapjan()">Keresés</button>
+    </div>
+
+    <h2 class="mt-2">Keresés magasság alapján:</h2>
+    <div>
+      <label for="keresettMagassag">Keresett magasság (cm):</label>
+      <input type="number" id="keresettMagassag" [(ngModel)]="keresettMagassag">
+      <button (click)="keresesMagassagAlapjan()">Keresés</button>
+    </div>
+    
+    <div class="mt-2" *ngIf="magasDiakok.length > 0">
+      <h2>Legalább ilyen magas diákok:</h2>
+      <ul>
+        <li *ngFor="let diak of magasDiakok">
+          {{ diak.nev }} - Magasság: {{ diak.magassag }}, Súly: {{ diak.suly }}
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="magasDiakok.length === 0 && keresettMagassag !== undefined">
+      <p>Nincs olyan magas diák ({{ keresettMagassag }} cm felett)</p>
+    </div>
 
 
 
