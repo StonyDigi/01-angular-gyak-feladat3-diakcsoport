@@ -32,6 +32,13 @@
       <button (click)="keresesNevAlapjan()">Keresés</button>
     </div>
 
+    <div *ngIf="keresettDiak">
+      <p>Diák a neve alapján ({{ keresettNev }}): {{ keresettDiak.nev }} - Magasság: {{ keresettDiak.magassag }}, Súly: {{ keresettDiak.suly }}</p>
+    </div>
+    <div *ngIf="!keresettDiak && keresettNev !== ''">
+      <p>Nincs ilyen nevű diák: {{ keresettNev }}</p>
+    </div>
+    
     <h2 class="mt-2">Keresés magasság alapján:</h2>
     <div>
       <label for="keresettMagassag">Keresett magasság (cm):</label>
